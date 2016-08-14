@@ -3,7 +3,7 @@ flatpak-xchat |LicenseImg|_
 ===========================
 
 .. |LicenseImg| image:: https://img.shields.io/github/license/karras/flatpak-xchat.svg?style=flat-square
-.. _LicenseImg: LICENSE
+   :target: LICENSE
 
 This repository contains a set of patches and a manifest to create a Flatpak
 build of XChat 2.8, a rather outdated IRC client.
@@ -19,7 +19,7 @@ Usage
 Follow the steps described below to build XChat from scratch. All steps are
 executed within the user context:
 
-1. Install `flatpak` with your package manager
+1. Install ``flatpak`` with your package manager
 2. Clone this repository and switch into the created directory
 3. Download the Gnome SDK key: ::
 
