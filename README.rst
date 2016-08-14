@@ -1,8 +1,8 @@
-===========================
-flatpak-xchat |LicenseImg|_
-===========================
+=======================
+flatpak-xchat |License|
+=======================
 
-.. |LicenseImg| image:: https://img.shields.io/github/license/karras/flatpak-xchat.svg?style=flat-square
+.. |License| image:: https://img.shields.io/github/license/karras/flatpak-xchat.svg?style=flat-square
    :target: LICENSE
 
 This repository contains a set of patches and a manifest to create a Flatpak
