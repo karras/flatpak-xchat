@@ -1,7 +1,11 @@
-=======================
-flatpak-xchat |License|
-=======================
+=============
+flatpak-xchat
+=============
 
+|Travis| |License|
+
+.. |Travis| image:: https://img.shields.io/travis/karras/flatpak-xchat.svg?style=flat-square
+   :target: https://travis-ci.org/karras/flatpak-xchat
 .. |License| image:: https://img.shields.io/github/license/karras/flatpak-xchat.svg?style=flat-square
    :target: LICENSE
 
