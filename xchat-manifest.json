@@ -1,34 +1,48 @@
 {
     "app-id": "ch.karras.Xchat",
     "branch": "stable",
-
-    "runtime": "org.gnome.Sdk",
-    "runtime-version": "3.20",
+    "runtime": "org.gnome.Platform",
+    "runtime-version": "3.28",
     "sdk": "org.gnome.Sdk",
-
     "command": "xchat",
-
+    "rename-desktop-file": "xchat.desktop",
+    "rename-icon": "xchat.png",
     "finish-args": [
-	"--share=network",
+        "--share=network",
         "--share=ipc",
-	"--socket=x11",
-        "--filesystem=~/.xchat2"
+        "--socket=x11",
+        "--socket=session-bus",
+        "--filesystem=xdg-download",
+        "--persist=.xchat2"
     ],
-    "build-options" : {
-        "cflags": "-O2 -g",
-        "cxxflags": "-O2 -g",
-        "env": {
-            "V": "1"
-        }
-    },
-    "cleanup": ["/include", "/lib/pkgconfig",
-                "/share/pkgconfig", "/share/aclocal",
-                "/man", "/share/man", "/share/gtk-doc",
-                "*.la", "*.a"],
     "modules": [
         {
             "name": "xchat",
-	    "make-args": [ "LDFLAGS=-lgmodule-2.0" ],
+            "make-args": [
+                "LDFLAGS=-lgmodule-2.0"
+            ],
+            "config-opts": [
+                "--disable-perl",
+                "--disable-python",
+                "--disable-tcl"
+            ],
+            "build-options" : {
+                "cflags": "-O2 -g",
+                "cxxflags": "-O2 -g",
+                "env": {
+                    "V": "1"
+                }
+            },
+            "cleanup": [
+                "/lib/debug",
+                "*.la",
+                "*.a"
+            ],
+            "post-install": [
+                "install -d /app/extensions",
+                "install -d /app/share/icons/",
+                "install /app/share/pixmaps/xchat.png /app/share/icons/"
+            ],
             "sources": [
                 {
                     "type": "archive",
