@@ -14,9 +14,9 @@ build of XChat 2.8, a rather outdated IRC client.
 
 XChat will have the following permissions:
 
-* Access X11
+* Access X11 and DBUS
 * Access the network
-* Access to the directory ~/.xchat2
+* Access to the directory XDG_DOWNLOAD
 
 Usage
 =====
@@ -60,10 +60,9 @@ executed within the user context:
 
 Patches
 =======
-The patches were taken from the `Arch Linux build`_ of XChat and reused without
-any modifications.
-
-.. _Arch Linux build: https://git.archlinux.org/svntogit/packages.git/tree/trunk?h=packages/xchat
+The patches were taken from the Arch Linux build of XChat and reused without
+any modifications. The package has been deprecated and replaced by Hexchat in
+the meantime.
 
 License
 =======
