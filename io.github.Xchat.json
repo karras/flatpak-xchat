@@ -6,7 +6,6 @@
     "sdk": "org.gnome.Sdk",
     "command": "xchat",
     "rename-desktop-file": "xchat.desktop",
-    "rename-icon": "xchat.png",
     "finish-args": [
         "--share=network",
         "--share=ipc",
@@ -18,13 +17,13 @@
     "modules": [
         {
             "name": "xchat",
-            "make-args": [
-                "LDFLAGS=-lgmodule-2.0"
-            ],
             "config-opts": [
                 "--disable-perl",
                 "--disable-python",
                 "--disable-tcl"
+            ],
+            "make-args": [
+                "LDFLAGS=-lgmodule-2.0"
             ],
             "build-options" : {
                 "cflags": "-O2 -g",
@@ -33,15 +32,13 @@
                     "V": "1"
                 }
             },
-            "cleanup": [
-                "/lib/debug",
-                "*.la",
-                "*.a"
-            ],
-            "post-install": [
-                "install -d /app/extensions",
+            "install-rule": "install-strip",
+            "cleanup-commands": [
                 "install -d /app/share/icons/",
                 "install /app/share/pixmaps/xchat.png /app/share/icons/"
+            ],
+            "post-install": [
+                "install -d /app/extensions"
             ],
             "sources": [
                 {
@@ -63,7 +60,7 @@
                 },
                 {
                     "type": "patch",
-                    "path": "xchat-sslv23.patch"
+                    "path": "xchat-2.8.8-sslv23.patch"
                 },
                 {
                     "type": "script",
