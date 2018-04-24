@@ -38,7 +38,7 @@ executed within the user context:
 
 5. Run the app: ::
 
-   flatpak run io.github.Xchat/x86_64/stable
+   $ flatpak run io.github.Xchat/x86_64/stable
 
 Patches
 =======
