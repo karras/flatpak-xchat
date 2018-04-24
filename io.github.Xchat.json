@@ -1,5 +1,5 @@
 {
-    "app-id": "ch.karras.Xchat",
+    "app-id": "io.github.Xchat",
     "branch": "stable",
     "runtime": "org.gnome.Platform",
     "runtime-version": "3.28",
@@ -13,6 +13,10 @@
         "--socket=session-bus",
         "--filesystem=xdg-download",
         "--persist=.xchat2"
+    ],
+    "cleanup-commands": [
+        "install -d /app/share/icons/",
+        "install /app/share/pixmaps/xchat.png /app/share/icons/io.github.Xchat.png"
     ],
     "modules": [
         {
@@ -33,10 +37,6 @@
                 }
             },
             "install-rule": "install-strip",
-            "cleanup-commands": [
-                "install -d /app/share/icons/",
-                "install /app/share/pixmaps/xchat.png /app/share/icons/"
-            ],
             "post-install": [
                 "install -d /app/extensions"
             ],
@@ -61,6 +61,10 @@
                 {
                     "type": "patch",
                     "path": "xchat-2.8.8-sslv23.patch"
+                },
+                {
+                    "type": "patch",
+                    "path": "xchat-2.8.8-desktopfile.patch"
                 },
                 {
                     "type": "script",
