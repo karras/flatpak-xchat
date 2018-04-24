@@ -10,13 +10,15 @@ flatpak-xchat
    :target: LICENSE
 
 This repository contains a set of patches and a manifest to create a Flatpak
-build of XChat 2.8, a rather outdated IRC client.
+build of XChat 2.8.8, a rather outdated IRC client.
 
 XChat will have the following permissions:
 
-* Access X11
+* Access X11 and DBUS
 * Access the network
-* Access to the directory ~/.xchat2
+* Access to the directory XDG_DOWNLOAD
+
+The configuration is stored in ``~/.var/app/io.github.Xchat/.xchat2``.
 
 Usage
 =====
@@ -25,45 +27,24 @@ executed within the user context:
 
 1. Install ``flatpak`` with your package manager
 2. Clone this repository and switch into the created directory
-3. Download the Gnome SDK key: ::
+3. Download the required runtimes: ::
 
-   $ wget https://sdk.gnome.org/keys/gnome-sdk.gpg
+   $ flatpak install --user flathub org.gnome.Platform//3.28
+   $ flatpak install --user flathub org.gnome.Sdk//3.28
 
-4. Add the Gnome Flatpak Repositories: ::
+4. Build and install the app in a local repository: ::
 
-   $ flatpak remote-add --gpg-import=gnome-sdk.gpg gnome https://sdk.gnome.org/repo/ --user
-   $ flatpak remote-add --gpg-import=gnome-sdk.gpg gnome-apps https://sdk.gnome.org/repo-apps/ --user
+   $ flatpak-builder --user --install io.github.Xchat.json
 
-5. Install the Gnome runtimes: ::
+5. Run the app: ::
 
-   $ flatpak install gnome org.gnome.Platform 3.20 --user
-   $ flatpak install gnome org.gnome.Sdk 3.20 --user
-
-6. Check the installed runtimes: ::
-
-   $ flatpak list --runtime --show-details --user
-
-7. Build XChat: ::
-
-   $ flatpak-builder build xchat-manifest.json
-
-8. Export the app, add it to a remote and install it: ::
-
-   $ flatpak build-export repo build
-   $ flatpak remote-add --no-gpg-verify xchat-repo repo --user
-   $ flatpak install xchat-repo ch.karras.Xchat --user
-
-9. Create the .xchat2 config directory if it does not exist and run the app: ::
-
-   $ mkdir ~/.xchat2
-   $ flatpak run ch.karras.Xchat
+   $ flatpak run io.github.Xchat/x86_64/stable
 
 Patches
 =======
-The patches were taken from the `Arch Linux build`_ of XChat and reused without
-any modifications.
-
-.. _Arch Linux build: https://git.archlinux.org/svntogit/packages.git/tree/trunk?h=packages/xchat
+Most patches were taken from the Arch Linux build of XChat and reused without
+any modifications. The package has been deprecated and replaced by Hexchat in
+the meantime.
 
 License
 =======

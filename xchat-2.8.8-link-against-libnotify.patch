@@ -1,4 +1,4 @@
-iFrom: Christopher Aillon <caillon@redhat.com>
+From: Christopher Aillon <caillon@redhat.com>
 Date: Thu, 7 Apr 2011 19:34:14 -0700
 Subject: [PATCH] Link directly against libnotify
 
