@@ -25,11 +25,11 @@
   <screenshots>
     <screenshot type="default">
       <caption>The main XChat window</caption>
-      <image type="source" width="1328" height="720">https://raw.githubusercontent.com/flathub/io.github.Xchat/master/io.github.Xchat.screenshot-0.png</image>
+      <image type="source" width="1328" height="720">https://raw.githubusercontent.com/karras/flatpak-xchat/master/io.github.Xchat.screenshot-0.png</image>
     </screenshot>
     <screenshot type="default">
       <caption>Select an IRC server from the list</caption>
-      <image type="source" width="366" height="516">https://raw.githubusercontent.com/flathub/io.github.Xchat/master/io.github.Xchat.screenshot-1.png</image>
+      <image type="source" width="366" height="516">https://raw.githubusercontent.com/karras/flatpak-xchat/master/io.github.Xchat.screenshot-1.png</image>
     </screenshot>
   </screenshots>
   <content_rating type="oars-1.0">
